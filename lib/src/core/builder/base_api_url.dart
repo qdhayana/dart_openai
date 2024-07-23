@@ -15,11 +15,9 @@ abstract class BaseApiUrlBuilder {
   @internal
   static String build(String endpoint, [String? id, String? query]) {
     final baseUrl = OpenAIConfig.baseUrl;
-    final version = OpenAIConfig.version;
     final usedEndpoint = _handleEndpointsStarting(endpoint);
 
     String apiLink = "$baseUrl";
-    apiLink += "/$version";
     apiLink += "$usedEndpoint";
 
     if (id != null) {

@@ -6,6 +6,10 @@
 
 - Bug fixes.
 
+- Disable version pinning in target url.
+
+- Add base OpenAIChatCompletionChoiceMessageContentItemModel type
+
 ## 5.1.0
 
 - Massive issues fixes related to incorrecr use of types, model fields..., audio transcription file streaming error handling, and more.

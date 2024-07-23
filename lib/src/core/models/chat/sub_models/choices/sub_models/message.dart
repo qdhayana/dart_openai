@@ -14,7 +14,7 @@ final class OpenAIChatCompletionChoiceMessageModel {
   final OpenAIChatMessageRole role;
 
   /// The [content] of the message.
-  final List<OpenAIChatCompletionChoiceMessageContentItemModel>? content;
+  final dynamic? content;
 
   /// The function that the model is requesting to call.
   final List<OpenAIResponseToolCall>? toolCalls;
@@ -66,7 +66,7 @@ final class OpenAIChatCompletionChoiceMessageModel {
   Map<String, dynamic> toMap() {
     return {
       "role": role.name,
-      "content": content?.map((contentItem) => contentItem.toMap()).toList(),
+      "content": content is String ? content : content?.map((contentItem) => contentItem.toMap()).toList(),
       if (toolCalls != null && role == OpenAIChatMessageRole.assistant)
         "tool_calls": toolCalls!.map((toolCall) => toolCall.toMap()).toList(),
       if (name != null) "name": name,

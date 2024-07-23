@@ -4,7 +4,7 @@
 /// {@endtemplate}
 class OpenAIChatCompletionChoiceMessageContentItemModel {
   /// The type of the content item.
-  final String type;
+  final String? type;
 
   /// The text content of the item.
   final String? text;
@@ -19,7 +19,7 @@ class OpenAIChatCompletionChoiceMessageContentItemModel {
 
   /// {@macro openai_chat_completion_choice_message_content_item_model}
   OpenAIChatCompletionChoiceMessageContentItemModel._({
-    required this.type,
+    this.type,
     this.text,
     this.imageUrl,
     this.imageBase64,
@@ -41,6 +41,12 @@ class OpenAIChatCompletionChoiceMessageContentItemModel {
   factory OpenAIChatCompletionChoiceMessageContentItemModel.text(String text) {
     return OpenAIChatCompletionChoiceMessageContentItemModel._(
       type: 'text',
+      text: text,
+    );
+  }
+  
+  factory OpenAIChatCompletionChoiceMessageContentItemModel(String text) {
+    return OpenAIChatCompletionChoiceMessageContentItemModel._(
       text: text,
     );
   }
